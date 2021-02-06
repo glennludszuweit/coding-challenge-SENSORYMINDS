@@ -1,12 +1,12 @@
 import React from 'react';
-import { Title, Winner, Replay } from './styles';
+import { Title, Winner, Action } from './styles';
 
 function Celebrate({ setPlay, setSelectedEmotion }) {
   return (
     <div>
       <Title>You Win!!</Title>
       <Winner disabled>50K </Winner>
-      <Replay
+      <Action
         onClick={() => {
           setTimeout(() => {
             setSelectedEmotion(['c3']);
@@ -15,7 +15,7 @@ function Celebrate({ setPlay, setSelectedEmotion }) {
         }}
       >
         Play Again
-      </Replay>
+      </Action>
     </div>
   );
 }

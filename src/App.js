@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GlobalStyle, Main, Container, Title } from './styles';
+import { GlobalStyle, Main, Container, Title, Action } from './styles';
 import { winningCombo } from './data';
 import Celebrate from './Celebrate';
 import Play from './Play';
@@ -39,6 +39,17 @@ function App() {
           />
         )}
       </Container>
+      {play && (
+        <Action
+          onClick={() => {
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }}
+        >
+          Change Card
+        </Action>
+      )}
     </Main>
   );
 }

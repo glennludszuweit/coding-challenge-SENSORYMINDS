@@ -73,7 +73,7 @@ export const Title = styled.p`
   }
 `;
 
-export const Replay = styled.a`
+export const Action = styled.a`
   font-size: 3rem;
   font-weight: 500;
   margin: 2rem;
