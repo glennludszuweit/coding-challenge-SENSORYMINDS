@@ -1,13 +1,22 @@
 import React from 'react';
-import { Container, GlobalStyle, Main, Title, Winner } from './styles';
+import { Title, Winner, Replay } from './styles';
 
-function Celebrate() {
+function Celebrate({ setPlay, setSelectedEmotion }) {
   return (
-    <Main>
-      <GlobalStyle />
+    <div>
       <Title>You Win!!</Title>
-      <Winner disabled>50K</Winner>
-    </Main>
+      <Winner disabled>50K </Winner>
+      <Replay
+        onClick={() => {
+          setTimeout(() => {
+            setSelectedEmotion(['c3']);
+            setPlay(true);
+          }, 1000);
+        }}
+      >
+        Play Again
+      </Replay>
+    </div>
   );
 }
 

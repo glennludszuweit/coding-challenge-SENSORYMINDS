@@ -1,18 +1,12 @@
 import { useState } from 'react';
-import {
-  GlobalStyle,
-  Main,
-  Container,
-  Title,
-  Box,
-  FlippedBox,
-  Winner,
-} from './styles';
-import { languages, winningCombo } from './data';
+import { GlobalStyle, Main, Container, Title } from './styles';
+import { winningCombo } from './data';
 import Celebrate from './Celebrate';
+import Play from './Play';
 
 function App() {
   const [selectedEmotion, setSelectedEmotion] = useState(['c3']);
+  const [play, setPlay] = useState(true);
 
   for (let i = 0; i < winningCombo.length; i++) {
     let exists = 0;
@@ -22,7 +16,9 @@ function App() {
       }
     }
     if (exists === 5) {
-      return <Celebrate />;
+      setTimeout(() => {
+        setPlay(false);
+      }, 1000);
     }
   }
 
@@ -31,24 +27,17 @@ function App() {
       <GlobalStyle />
       <Title>Programmers Bingo</Title>
       <Container>
-        {languages.map((language, index) => (
-          <div key={index}>
-            {selectedEmotion &&
-            selectedEmotion.find((x) => x === language.id) ? (
-              <FlippedBox disabled key={index}>
-                {language.name}
-              </FlippedBox>
-            ) : (
-              <Box
-                onClick={() => {
-                  setSelectedEmotion([...selectedEmotion, language.id]);
-                }}
-              >
-                {language.name}
-              </Box>
-            )}
-          </div>
-        ))}
+        {!play ? (
+          <Celebrate
+            setPlay={setPlay}
+            setSelectedEmotion={setSelectedEmotion}
+          />
+        ) : (
+          <Play
+            selectedEmotion={selectedEmotion}
+            setSelectedEmotion={setSelectedEmotion}
+          />
+        )}
       </Container>
     </Main>
   );

@@ -73,6 +73,24 @@ export const Title = styled.p`
   }
 `;
 
+export const Replay = styled.a`
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 2rem;
+  text-transform: uppercase;
+  color: #39ff14;
+  text-shadow: 0.2rem 0.2rem rgba(1, 152, 117, 0.3);
+  cursor: pointer;
+
+  @media screen and (max-width: 45rem) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 30rem) {
+    font-size: 2rem;
+  }
+`;
+
 export const Box = styled.button`
   width: 10rem;
   height: 10rem;
