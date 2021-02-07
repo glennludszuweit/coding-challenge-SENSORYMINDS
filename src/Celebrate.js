@@ -5,7 +5,7 @@ function Celebrate({ setPlay, setSelectedEmotion }) {
   return (
     <div>
       <Title>You Win!!</Title>
-      <Winner disabled>50K </Winner>
+      <Winner disabled>{Math.round(Math.random() * 50)}K </Winner>
       <Action
         onClick={() => {
           setTimeout(() => {
